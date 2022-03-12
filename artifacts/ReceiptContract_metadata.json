@@ -484,18 +484,10 @@
 	},
 	"sources": {
 		"Receipt.sol": {
-			"keccak256": "0x60a708545f8e7e83332966baaea2faaa2ee363d9b0d60b9b263ab16ee52b2e5c",
+			"keccak256": "0xa1e5b376a149bd339b586c36be61c08963abbc3dba34d9259046aeb67208f683",
 			"urls": [
-				"bzz-raw://44cf4671164ccac32eddd27b943ed8306cc3c7412278730f6339bab00cd1f551",
-				"dweb:/ipfs/QmXQQZwtyC2peDPuwyvN13pQZ2ghwmvbuPGrbcLM7GwyWD"
-			]
-		},
-		"hardhat/console.sol": {
-			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
-				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
+				"bzz-raw://ac0da808ff6d087ae953edb2fc85ed368277d1c5a419a11c1d1a800008ece07e",
+				"dweb:/ipfs/QmPF2zDPL95LVakdtzurE2w26JXrPDYLUMNx6dHJR9KiBG"
 			]
 		}
 	},

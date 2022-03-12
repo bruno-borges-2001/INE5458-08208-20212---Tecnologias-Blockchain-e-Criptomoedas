@@ -1,7 +1,5 @@
 pragma solidity ^0.8.7;
 
-import "hardhat/console.sol";
-
 enum FrequencyMultiplier {
     NONE,
     DAY,
@@ -110,7 +108,7 @@ contract ReceiptContract {
             return (false, "Informed value does not correspond to sent in the message", -1);
         }
 
-        Receipt memory receipt = receipts[receiptsCount];
+        Receipt storage receipt = receipts[receiptsCount];
         receipt.sender = senders[receiptsCount];
         receipt.receiver = receivers[receiptsCount];
         receipt.value = _value;
@@ -192,6 +190,7 @@ contract ReceiptContract {
         if (receipt.isRecurrent) {
             receipt.currentInstallment += receipt.frequencyInstallment;
             _to.transfer(receipt.storedValue);
+            receipt.storedValue = 0;
             if (receipt.currentInstallment >= receipt.duration) {
                 receipt.isFulfilled = true;
                 return (true, "Redeem Successful, Receipt is now fulfilled");
@@ -200,8 +199,10 @@ contract ReceiptContract {
             uint installmentValue = receipt.value / receipt.frequencyInstallment;
             if (++receipt.currentInstallment < receipt.frequencyInstallment && installmentValue <= receipt.storedValue) {
                 _to.transfer(installmentValue);
+                receipt.storedValue -= installmentValue;
             } else {
                 _to.transfer(receipt.storedValue);
+                receipt.storedValue = 0;
                 receipt.isFulfilled = true;
                 return (true, "Redeem Successful, Receipt is now fulfilled");
             }
@@ -224,7 +225,7 @@ contract ReceiptContract {
             return false;
         }
 
-        Receipt memory receipt = receipts[index];
+        Receipt storage receipt = receipts[index];
 
         if (receipt.isFulfilled) {
             sender.transfer(msg.value);
@@ -237,8 +238,6 @@ contract ReceiptContract {
             sender.transfer(msg.value);
             return false;
         }
-
-        receipts[index] = receipt;
 
         return true;
     }
