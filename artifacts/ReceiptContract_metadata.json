@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.12+commit.f00d7308"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -108,12 +108,216 @@
 						"type": "uint256"
 					}
 				],
+				"name": "getReceipt",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "ad",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "company",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "idCode",
+										"type": "string"
+									}
+								],
+								"internalType": "struct ReceiptContract.Entity",
+								"name": "sender",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "ad",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "company",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "idCode",
+										"type": "string"
+									}
+								],
+								"internalType": "struct ReceiptContract.Entity",
+								"name": "receiver",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "reason",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "frequencyInstallment",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "duration",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum FrequencyMultiplier",
+								"name": "frequencyMultiplier",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "isRecurrent",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isFulfilled",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "fulfillmentCriteria",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint8",
+										"name": "day",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint8",
+										"name": "month",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "year",
+										"type": "uint16"
+									},
+									{
+										"internalType": "uint8",
+										"name": "hour",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint8",
+										"name": "minute",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct ReceiptContract.Date",
+								"name": "createAt",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "storedValue",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "currentInstallment",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "isRedeemable",
+								"type": "bool"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint8",
+										"name": "day",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint8",
+										"name": "month",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "year",
+										"type": "uint16"
+									},
+									{
+										"internalType": "uint8",
+										"name": "hour",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint8",
+										"name": "minute",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct ReceiptContract.Date",
+								"name": "lastUpdatedAt",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct ReceiptContract.Receipt",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
 				"name": "lock",
 				"outputs": [
 					{
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -280,10 +484,10 @@
 	},
 	"sources": {
 		"Receipt.sol": {
-			"keccak256": "0x30c14926322527fabfd2a13749500042dd40c2e52c76aad0c8c29cd410684580",
+			"keccak256": "0x60a708545f8e7e83332966baaea2faaa2ee363d9b0d60b9b263ab16ee52b2e5c",
 			"urls": [
-				"bzz-raw://a00b1e3d60b64fc11ad9b665bbba4764683390279b75a6f67afb3f0ceab6f185",
-				"dweb:/ipfs/QmdFNJTbgGfdVXiMizt6JNBfX7ECpvRVmneeGwDqoTf5Ni"
+				"bzz-raw://44cf4671164ccac32eddd27b943ed8306cc3c7412278730f6339bab00cd1f551",
+				"dweb:/ipfs/QmXQQZwtyC2peDPuwyvN13pQZ2ghwmvbuPGrbcLM7GwyWD"
 			]
 		},
 		"hardhat/console.sol": {

@@ -131,7 +131,7 @@ contract ReceiptContract {
         return (true, "Success!", int(receiptsCount - 1));
     }
 
-    function lock(uint index) public returns (bool, string) {
+    function lock(uint index) public returns (bool, string memory) {
         if (index >= receiptsCount) {
             return (false, "Index is not valid");
         }
@@ -245,7 +245,7 @@ contract ReceiptContract {
 
     function getReceipt(uint index) public view returns (bool, Receipt memory) {
         if (index >= receiptsCount) {
-            return (false, 0);
+            revert("Not Found");
         }
 
         return (true, receipts[index]);
